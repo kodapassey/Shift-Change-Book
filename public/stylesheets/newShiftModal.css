@@ -1,0 +1,117 @@
+.modal-blur {
+    filter: blur(1.5px);
+    pointer-events: none;
+}
+
+#newShiftModal {
+    position: absolute;
+    bottom: 192px;
+    width: 40%;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 2px solid black;
+    padding: 50px;
+    background: rgb(170, 170, 170);
+}
+
+#newShiftModal h3 {
+    font-size: 40px;
+    font-weight: bold;
+    padding: 10px 0;
+    border-bottom: 3px solid black;
+    width: 70%;
+}
+
+#shiftForm .row {
+    border-bottom: 1px solid black;
+    padding: 5px;
+}
+
+#shiftForm .col-xl-2 {
+    margin: 5px 0;
+}
+
+#newShiftModal input {
+    width: 80%;
+    padding: 5px;
+}
+
+#newShiftModal label {
+    width: 150px;
+    font-size: 20px;
+}
+
+.newShiftSubmitBtn {
+    background: green;
+    color: white;
+    width: 140px;
+    padding: 10px;
+    margin: 5px auto;
+    border: none;
+}
+
+.newShiftCancelBtn {
+    background: red;
+    color: white;
+    width: 140px;
+    padding: 10px;
+    margin: 5px auto;
+    border: none;
+}
+
+
+@media (max-width: 1200px) {
+    #newShiftModal {
+        bottom: 5%;
+    }
+
+    #newShiftModal h3 {
+        width: 100%;
+        text-align: center;
+    }
+}
+
+@media (max-width: 992px) {
+
+    #newShiftModal {
+        width: 65%;
+        padding: 25px;
+        bottom: 10%;
+    }
+
+    #newShiftModal input {
+        padding: 3px;
+        width: 100%;
+    }
+
+    #newShiftModal label {
+        width: 150px;
+        font-size: 15px;
+    }
+
+    .buttons {
+        text-align: center;
+    }
+}
+
+
+@media (max-width: 500px) {
+
+    #newShiftModal {
+        width: 80%;
+    }
+
+    #newShiftModal h3 {
+        font-size: 25px;
+        width: 100%;
+        text-align: center;
+    }
+
+    .buttons button {
+        width: 100%;
+    }
+
+    #newShiftModal input {
+        width: 100%;
+    }
+}

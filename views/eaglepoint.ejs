@@ -1,0 +1,143 @@
+<%- include('partials/head') %>
+
+
+    <body>
+        <div class="nonModalDiv">
+
+            <%- include('partials/navbar') %>
+                <%- include('partials/subNav') %>
+                    <section class="main">
+
+                        <% if (shifts[0]===undefined) { %>
+                            <h1 class="noShifth1">Eagle Point</h1>
+                            <section class="noShiftsDiv">
+                                <h2 class="noCurrentShifth2">No current shifts for this date!</h2>
+                                <button class="noCurrentShiftsBtn" id="noCurrentShiftsBtn">Create New Shift</button>
+                            </section>
+                            <% } else { %>
+                                <h1 class="ifshifth1">Eagle Point
+
+                                </h1>
+                                <% for (let shift of shifts) { %>
+
+
+                                    <section class="mainFormWrapper">
+                                        <form class="mainForm" action="/eaglepoint/<%= shift._id %>?_method=PUT"
+                                            method="POST">
+
+                                            <input type="hidden" name="_id" value="<%= shift._id %>">
+
+                                            <input class="inputVal" type="date" name="date" id="date"
+                                                value="<%= new Date(shift.date).toLocaleDateString('en-CA', { timeZone: 'UTC' }) %>"
+                                                required>
+
+                                            <input class="inputVal" type="text" name="coveringShift" id="coveringShift"
+                                                placeholder="Covering Shift" value="<%= shift.coveringShift%>">
+
+                                            <div class="shiftLabelWrap">
+                                                <label for="needsCoverage">Working For:</label>
+                                                <input class="inputVal" type="text" name="needsCoverage"
+                                                    id="needsCoverage" placeholder="Needing Coverage"
+                                                    value="<%= shift.needsCoverage%>" required>
+                                            </div>
+
+                                            <div class="shiftLabelWrap">
+                                                <label for="startTime">Start Time:</label>
+                                                <input class="inputVal" type="time" name="startTime" id="startTime"
+                                                    value="<%= shift.startTime%>" required>
+                                            </div>
+
+                                            <div class="shiftLabelWrap">
+                                                <label for="endTime">End Time:</label>
+                                                <input class="inputVal" type="time" name="endTime" id="endTime"
+                                                    value="<%= shift.endTime%>" required>
+                                            </div>
+
+                                            <button class="submitBtn" type="submit">Update</button>
+                                        </form>
+
+                                        <form class="deleteForm" id="deleteForm_<%= shift._id %>"
+                                            action="/eaglepoint/<%= shift._id %>?_method=DELETE" method="post">
+                                            <input type="hidden" name="_id" value="<%= shift._id %>">
+                                            <button class="deleteBtn" type="submit">Delete</button>
+                                        </form>
+                                    </section>
+                                    <% } %>
+                                        <% } %>
+                    </section>
+        </div>
+
+        <div class="container">
+            <section id="newShiftModal" style="display: none;">
+                <form id="shiftForm" action="/eaglepoint/:date" method="POST">
+                    <h3>Create New Shift</h3>
+
+                    <div class="row">
+                        <div class="col-xl-6">
+                            <label for="date">Date:</label>
+                        </div>
+                        <div class="col-xl-6">
+                            <input type="date" name="date" id="date" required>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-xl-6">
+                            <label for="coveringShift">Covering Shift:</label>
+                        </div>
+                        <div class="col-xl-6">
+                            <input type="text" name="coveringShift" id="coveringShift" placeholder="Covering Shift">
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-xl-6">
+                            <label for="needsCoverage">Needs Coverage:</label>
+                        </div>
+                        <div class="col-xl-6">
+                            <input type="text" name="needsCoverage" id="needsCoverage" placeholder="Needing Coverage"
+                                required>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-xl-6">
+                            <label for="startTime">Start Time:</label>
+                        </div>
+                        <div class="col-xl-6">
+                            <input type="time" name="startTime" id="startTime" required>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-xl-6">
+                            <label for="startTime">End Time:</label>
+                        </div>
+                        <div class="col-xl-6">
+                            <input type="time" name="endTime" id="endTime" required>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-xl-6">
+                            <label for="pin">Enter Admin Pin:</label>
+                        </div>
+                        <div class="col-xl-6">
+                            <input type="password" name="pin" id="pin" required>
+                        </div>
+                    </div>
+
+                    <div class="buttons">
+                        <button class="newShiftSubmitBtn" type="submit">Submit</button>
+                        <button class="newShiftCancelBtn" id="cancelModalBtn">Cancel</button>
+                    </div>
+                </form>
+            </section>
+
+
+        </div>
+    </body>
+
+    <%- include('partials/scripts') %>
+
+        </html>

@@ -1,0 +1,116 @@
+.navbar {
+    background: white !important;
+    border-bottom: 1px solid black;
+    padding: 25px;
+}
+
+.navImg img {
+    width: 135px;
+}
+
+.navbar ul li {
+    font-size: 20px;
+    margin: 0 11px;
+    font-weight: bold;
+}
+
+/* below is styling for the sub nav bar */
+
+.subNav {
+    height: 100px;
+    background: rgb(191, 191, 191);
+    border-top: 1px solid black;
+    border-bottom: 1px solid black
+}
+
+.subNav a {
+    text-decoration: none;
+}
+
+.subNavLeft {
+    position: relative;
+    display: inline;
+    left: 15px;
+    top: 25%;
+}
+
+.subNavRight {
+    display: inline;
+    position: relative;
+    float: right;
+    right: 15px;
+    top: 25%;
+}
+
+.subNavBtn,
+.subNavDate {
+    background: #4d7de1;
+    color: white;
+    display: inline;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    margin: 0 5px;
+}
+
+.subNavBtn:hover {
+    transition: all .25s ease-out;
+    background: #4673d5;
+    cursor: pointer;
+}
+
+.subNav ::-webkit-calendar-picker-indicator:hover {
+    cursor: pointer;
+}
+
+.subNav ::-webkit-calendar-picker-indicator {
+    filter: invert(1);
+}
+
+
+@media (max-width: 991px) {
+
+    .subNavBtn,
+    .subNavDate {
+        padding: 5px;
+        font-size: 15px;
+    }
+}
+
+@media (max-width: 600px) {
+
+    .subNavBtn,
+    .subNavDate {
+        padding: 7px;
+        font-size: 11px;
+        border-radius: 5px;
+        margin: 0;
+    }
+
+    .subNavLeft {
+        position: relative;
+        display: inline;
+        left: 0px;
+        top: 25%;
+    }
+
+    .subNavRight {
+        right: 0px;
+        top: 25%;
+    }
+}
+
+@media (max-width: 374px) {
+
+    .subNavLeft {
+        position: relative;
+        display: block;
+        text-align: center;
+    }
+
+    .subNavRight {
+        display: block;
+        float: none;
+        text-align: center;
+    }
+}

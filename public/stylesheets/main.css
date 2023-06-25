@@ -1,0 +1,288 @@
+body {
+    background: rgb(191, 191, 191);
+    height: 100%;
+}
+
+.main {
+    background: white;
+    width: 87%;
+    height: 100%;
+    margin: 0 auto;
+    padding: 50px;
+}
+
+.mainButtonsWrap {
+    text-align: center;
+}
+
+.main3Buttons {
+    background: #6d83ff;
+    width: 300px;
+    height: 90px;
+    margin: 10px 10px;
+    color: white;
+    font-size: 25px;
+    font-weight: lighter;
+}
+
+.main3Buttons:hover {
+    transition: all .5s ease-out;
+    background: #4460ff;
+}
+
+.noShiftsDiv {
+    text-align: center;
+}
+
+.noShifth1 {
+    padding: 10px 0px;
+    font-style: italic;
+    text-align: center;
+}
+
+.ifshifth1 {
+    padding: 10px 0px;
+    font-style: italic;
+    text-align: left;
+}
+
+.h1Span {
+    font-size: 20px;
+}
+
+.mainForm label {
+    padding: 10px;
+    margin: 5px;
+}
+
+.inputVal {
+    padding: 10px;
+    border: 0.5px solid black;
+    margin: 5px;
+}
+
+.deleteForm,
+.mainForm {
+    display: inline;
+}
+
+.submitBtn {
+    background: green;
+    border: .5px solid green;
+    color: white;
+    padding: 10px;
+    width: 75px;
+
+}
+
+.deleteBtn {
+    background: red;
+    border: .5px solid red;
+    color: white;
+    padding: 10px;
+    width: 75px;
+}
+
+.noCurrentShiftsBtn {
+    width: 150px;
+    padding: 7px;
+    border: none;
+    background: green;
+    color: white;
+}
+
+.noCurrentShifth2 {
+    font-size: 20px;
+    padding: 0 0 10px 0;
+    font-weight: lighter;
+}
+
+.mainFormWrapper {
+    margin: 30px 0;
+    border: 1px solid black;
+    padding: 20px;
+}
+
+.main ::-webkit-calendar-picker-indicator:hover {
+    cursor: pointer;
+}
+
+.shiftLabelWrap {
+    display: inline-flex;
+    flex-wrap: nowrap;
+}
+
+
+
+/* -------- Styles for NewChangeRequest page --------- */
+
+.newChangeReqForm {
+    padding: 30px;
+    border: 1px solid black;
+    width: 65%;
+    margin: 0 auto;
+}
+
+.allShifts {
+    margin: 0;
+    padding: 0;
+}
+
+.newChangeReqFormH1 {
+    font-size: 50px;
+    padding: 0 70px 0 70px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.newChangeReqFormH2 {
+    font-size: 25px;
+    padding: 0px 70px 30px 70px;
+    font-weight: lighter;
+    text-align: center;
+}
+
+.newChangeReqForm ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.newChangeReqForm textarea {
+    padding: 5px;
+    width: 100%;
+    height: 130px;
+    border: 1px solid black;
+    resize: both !important;
+}
+
+.newChangeReqForm label {
+    padding: 0;
+}
+
+.allShifts ul {
+    border: 1px solid black;
+    padding: 15px;
+    margin: 8px 0;
+}
+
+.allShifts li {
+    padding: 10px 10px 10px 10px;
+}
+
+.allShifts input {
+    width: 100%;
+    border: 1px solid black;
+}
+
+.newChangeReqForm input {
+    padding: 10px;
+    border: 1px solid black;
+}
+
+.newChangeReqForm button {
+    border: none;
+    padding: 5px;
+    margin: 10px 0;
+    background: green;
+    color: white;
+    width: 100%;
+    height: 50px;
+    border-radius: 20px;
+}
+
+.reqName {
+    display: inline;
+}
+
+.removeBtn {
+    display: flex;
+    align-items: center;
+}
+
+.removeBtn button {
+    border: none;
+    padding: 5px;
+    margin: 5px 0;
+    background: rgb(194, 1, 1);
+    color: white;
+}
+
+
+
+@media (max-width: 992px) {
+
+    .shiftLabelWrap {
+        display: block;
+    }
+
+    .newChangeReqForm {
+        width: 100%;
+        margin: 0;
+    }
+
+    .shift {
+        border: 1px solid black;
+    }
+
+    .newChangeReqFormH1 {
+        font-size: 40px;
+        padding: 20px 20px 0 20px;
+        text-align: center;
+    }
+
+    .newChangeReqFormH2 {
+        font-size: 20px;
+        padding: 0px 70px 0 70px;
+        font-weight: lighter;
+        text-align: center;
+    }
+
+    .newChangeReqForm input {
+        margin: 5px 0;
+        width: 100%;
+    }
+
+    .buttonDiv {
+        width: 100%;
+        text-align: center;
+    }
+
+    .inputVal {
+        display: block;
+        width: 100%;
+        margin: 7px 0;
+    }
+
+    .mainForm label {
+        padding: 0;
+        margin: 0;
+    }
+
+    .submitBtn,
+    .deleteBtn {
+        width: 100%;
+        margin: 7px 0;
+    }
+
+    .mainFormWrapper {
+        border: none;
+        padding: 10px;
+    }
+
+    .ifshifth1 {
+        text-align: center;
+    }
+}
+
+
+@media (max-width: 500px) {
+
+    .newChangeReqForm {
+        padding: 15px;
+        border: none;
+    }
+
+    .main {
+        padding: 15px 0;
+    }
+}

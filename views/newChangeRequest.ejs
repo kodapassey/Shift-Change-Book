@@ -1,0 +1,135 @@
+<%- include('partials/head') %>
+
+    <body>
+        <%- include('partials/navbar') %>
+
+            <section class="main">
+                <h1 class="newChangeReqFormH1">New Change Request</h1>
+                <h2 class="newChangeReqFormH2">Fill out the form below to request time off</h2>
+
+                <form class="newChangeReqForm" id="shift-form" onsubmit="sendEmail(); reset(); return false;">
+                    <ul>
+                        <li class="reqName">
+                            <input type="text" name="first" id="firstName" placeholder="First Name" required>
+                        </li>
+                        <li class="reqName">
+                            <input type="text" name="last" id="lastName" placeholder="Last Name" required>
+                        </li>
+
+
+                        <div class="allShifts container" id="allShifts">
+                            <ul class="row shift">
+                                <li class="col-lg-3 col-sm-12">
+                                    <label for="dateRequest">Date of Shift:</label>
+                                    <input type="date" name="dateRequest" id="dateRequest" required>
+                                </li>
+                                <li class="col-lg-3 col-sm-12">
+                                    <label for="startTime">Shift Start Time:</label>
+                                    <input type="time" name="startTime" id="startTime" required>
+                                </li>
+                                <li class="col-lg-3 col-sm-12">
+                                    <label for="endTime">Shift End Time:</label>
+                                    <input type="time" name="endTime" id="endTime" required>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="buttonDiv">
+                            <button type="button" id="addShift">Add Shift</button>
+                        </div>
+
+                        <li>
+                            <textarea name="reason" id="reason" placeholder="Reason For Absence"></textarea>
+                        </li>
+                    </ul>
+
+                    <div class="buttonDiv">
+                        <button>Submit</button>
+                    </div>
+                </form>
+            </section>
+    </body>
+
+    <%- include('partials/scripts') %>
+
+        <script>
+
+            function sendEmail() {
+                const firstName = document.querySelector('#firstName').value;
+                const lastName = document.querySelector('#lastName').value;
+                const date = document.querySelector('#dateRequest').value;
+                const startTime = document.querySelector('#startTime').value;
+                const endTime = document.querySelector('#endTime').value;
+                const reason = document.querySelector('#reason').value;
+
+
+                // functions to format date
+                let splitDate = date.split("-");
+                let newDateString = splitDate[1] + "-" + splitDate[2] + "-" + splitDate[0];
+
+                // function to format time inputs from millitary time to normal time
+                function formatMilitaryTime(military_time) {
+                    let split_time = military_time.split(":");
+                    let hour = parseInt(split_time[0]);
+                    let minute = split_time[1];
+                    let am_pm = (hour >= 12) ? "PM" : "AM";
+                    if (hour > 12) {
+                        hour -= 12;
+                    } else if (hour === 0) {
+                        hour = 12;
+                    }
+                    return hour + ":" + minute + " " + am_pm;
+                }
+
+                let formattedStartTime = formatMilitaryTime(startTime);
+                let formattedEndTime = formatMilitaryTime(endTime);
+
+
+
+                // loops through an array of newly created shifts from the "add shift" button, and grabs these values, not the original shift that is in the form
+                let card = '';
+                shiftInfoArray.forEach(function (shiftInfo) {
+
+                    // functions to format date
+                    let loopSplitDate = shiftInfo.date.split("-");
+                    let loopDateString = loopSplitDate[1] + "-" + loopSplitDate[2] + "-" + loopSplitDate[0];
+
+                    // calling the function to format time and storing in a variable
+                    let loopStartTime = formatMilitaryTime(shiftInfo.startTime)
+                    let loopEndTime = formatMilitaryTime(shiftInfo.endTime)
+
+                    card += `
+                        <br>
+                        Date of shift: ${loopDateString} <br>
+                        Shift Starting Time: ${loopStartTime} <br>
+                        Shift Ending Time: ${loopEndTime} <br>
+                    `;
+                });
+
+
+                // sends email
+                Email.send({
+                    SecureToken: "689215a8-b4a8-42b6-b7d1-70fe437430fd",
+                    To: 'kodapassey@charter.net',
+                    From: 'kodapassey@charter.net',
+                    Subject: `New Shift Change Request From: ${firstName} ${lastName}`,
+                    Body: `
+                        Date of shift: ${newDateString} <br>
+                        Shift Starting Time: ${formattedStartTime} <br>
+                        Shift Ending Time: ${formattedEndTime} <br>
+                        ${card}
+                        Reason for absence: ${reason} <br>
+                    `
+                }).then(
+                    message => alert(message)
+                );
+            }
+        </script>
+
+        </html>
+
+        <!-- password -->
+        <!-- 5199BADCA16D4664794D2F8F89244DF95BEC -->
+
+        <!-- encrypted key -->
+        <!--  689215a8-b4a8-42b6-b7d1-70fe437430fd -->
