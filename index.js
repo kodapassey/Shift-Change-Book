@@ -11,7 +11,7 @@ const Club2Shift = require('./models/club2Shift.js');
 const EpShift = require('./models/eaglepointShift.js');
 
 
-mongoose.connect('mongodb://127.0.0.1:27017/shiftChangeDb', { useNewUrlParser: true, useUnifiedTopology: true })
+mongoose.connect('mongodb+srv://kodapassey:Koda020904@cluster0.2fnmtxk.mongodb.net/shiftChangeDb?retryWrites=true&w=majority', { useNewUrlParser: true, useUnifiedTopology: true })
     .then(() => {
         console.log('MONGO CONNECTION OPEN!!!')
     })
