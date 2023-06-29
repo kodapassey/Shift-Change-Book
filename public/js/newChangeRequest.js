@@ -3,7 +3,6 @@ const removeShift = document.querySelector('#removeShift');
 
 const allShifts = document.querySelector('#allShifts');
 
-
 let shiftInfoArray = [];
 
 addShift.addEventListener('click', function () {
@@ -11,29 +10,29 @@ addShift.addEventListener('click', function () {
     newShiftDiv.classList.add('newShiftDiv');
 
     newShiftDiv.innerHTML = `
-    <ul class="row shift">
-        <li class="col-lg-3 col-sm-12">
-            <label for="dateRequest">Date of Shift:</label>
-            <input type="date" name="dateRequest" id="dateRequest" placeholder='mm/dd/yyyy' required>
-        </li>
-        <li class="col-lg-3 col-sm-12">
-            <label for="startTime">Shift Start Time:</label>
-            <input type="time" name="startTime" id="startTime" required>
-        </li>
-        <li class="col-lg-3 col-sm-12">
-            <label for="endTime">Shift End Time:</label>
-            <input type="time" name="endTime" id="endTime" required>
-        </li>
-        <li class="col-lg-3 col-sm-12 removeBtn">
-            <button type="button" class="removeShift">Remove Shift</button>
-        </li>
-    </ul>
+        <ul class="row shift">
+            <li class="col-lg-3 col-sm-12">
+                <label for="dateRequest">Date of Shift:</label>
+                <input type="date" name="dateRequest" id="dateRequest" placeholder='mm/dd/yyyy' required>
+            </li>
+            <li class="col-lg-3 col-sm-12">
+                <label for="startTime">Shift Start Time:</label>
+                <input type="time" name="startTime" id="startTime" required>
+            </li>
+            <li class="col-lg-3 col-sm-12">
+                <label for="endTime">Shift End Time:</label>
+                <input type="time" name="endTime" id="endTime" required>
+            </li>
+            <li class="col-lg-3 col-sm-12 removeBtn">
+                <button type="button" class="removeShift">Remove Shift</button>
+            </li>
+        </ul>
     `;
 
     allShifts.appendChild(newShiftDiv);
 
-    const removeShift = newShiftDiv.querySelector('.removeShift');
-    removeShift.addEventListener('click', function () {
+    const removeShiftButton = newShiftDiv.querySelector('.removeShift');
+    removeShiftButton.addEventListener('click', function () {
         const divToRemove = newShiftDiv;
         divToRemove.remove();
 
@@ -42,21 +41,28 @@ addShift.addEventListener('click', function () {
         shiftInfoArray.splice(indexToRemove, 1);
     });
 
-    // add the shift info to the shiftInfoArray
     const shiftInfo = {
-        date: newShiftDiv.querySelector('.date').value,
-        startTime: newShiftDiv.querySelector('.startTime').value,
-        endTime: newShiftDiv.querySelector('.endTime').value
+        date: '',
+        startTime: '',
+        endTime: ''
     };
 
-    shiftInfoArray.push(shiftInfo);
-
     // update the shift info in the array whenever a change is made to the input fields
-    newShiftDiv.querySelectorAll('input').forEach(function (input) {
-        input.addEventListener('input', function () {
-            shiftInfo.date = newShiftDiv.querySelector('.date').value;
-            shiftInfo.startTime = newShiftDiv.querySelector('.startTime').value;
-            shiftInfo.endTime = newShiftDiv.querySelector('.endTime').value;
-        });
+    const dateInput = newShiftDiv.querySelector('#dateRequest');
+    const startTimeInput = newShiftDiv.querySelector('#startTime');
+    const endTimeInput = newShiftDiv.querySelector('#endTime');
+
+    dateInput.addEventListener('input', function () {
+        shiftInfo.date = dateInput.value;
     });
+
+    startTimeInput.addEventListener('input', function () {
+        shiftInfo.startTime = startTimeInput.value;
+    });
+
+    endTimeInput.addEventListener('input', function () {
+        shiftInfo.endTime = endTimeInput.value;
+    });
+
+    shiftInfoArray.push(shiftInfo);
 });

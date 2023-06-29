@@ -21,8 +21,7 @@
                             <ul class="row shift">
                                 <li class="col-lg-3 col-sm-12">
                                     <label for="dateRequest">Date of Shift:</label>
-                                    <input type="date" name="dateRequest" id="dateRequest" placeholder="mm/dd/yyyy"
-                                        required>
+                                    <input type="date" name="dateRequest" id="dateRequest" required>
                                 </li>
                                 <li class="col-lg-3 col-sm-12">
                                     <label for="startTime">Shift Start Time:</label>
@@ -89,6 +88,7 @@
 
                 // loops through an array of newly created shifts from the "add shift" button, and grabs these values, not the original shift that is in the form
                 let card = '';
+                console.log('Array length:', shiftInfoArray.length)
                 shiftInfoArray.forEach(function (shiftInfo) {
 
                     // functions to format date
@@ -105,20 +105,22 @@
                         Shift Starting Time: ${loopStartTime} <br>
                         Shift Ending Time: ${loopEndTime} <br>
                     `;
+
+                    console.log(card)
                 });
 
 
                 // sends email
                 Email.send({
                     SecureToken: "689215a8-b4a8-42b6-b7d1-70fe437430fd",
-                    To: 'kodapassey@charter.net',
+                    To: 'kodapassey04@gmail.com',
                     From: 'kodapassey@charter.net',
                     Subject: `New Shift Change Request From: ${firstName} ${lastName}`,
                     Body: `
                         Date of shift: ${newDateString} <br>
                         Shift Starting Time: ${formattedStartTime} <br>
                         Shift Ending Time: ${formattedEndTime} <br>
-                        ${card}
+                        ${card} <br>
                         Reason for absence: ${reason} <br>
                     `
                 }).then(

@@ -28,7 +28,7 @@
                                             <input type="hidden" name="_id" value="<%= shift._id %>">
 
                                             <input class="inputVal" type="date" name="date" id="date"
-                                                placeholder="MM/DD/YYYY"
+                                            
                                                 value="<%= new Date(shift.date).toLocaleDateString('en-CA', { timeZone: 'UTC' }) %>"
                                                 required>
 
@@ -78,7 +78,7 @@
                             <label for="date">Date:</label>
                         </div>
                         <div class="col-xl-6">
-                            <input type="date" name="date" id="date" placeholder="mm/dd/yyyy" required>
+                            <input type="date" name="date" id="date" required>
                         </div>
                     </div>
 

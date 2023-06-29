@@ -124,4 +124,15 @@
     #newShiftModal input {
         width: 100%;
     }
+
+    .modalBtns {
+        margin: 0;
+    }
+}
+
+@media (max-width: 375px) {
+    #newShiftModal {
+        padding: 10px;
+        bottom: 2%;
+    }
 }
