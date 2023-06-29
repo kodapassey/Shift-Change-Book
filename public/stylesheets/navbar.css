@@ -20,7 +20,11 @@
     height: 100px;
     background: rgb(191, 191, 191);
     border-top: 1px solid black;
-    border-bottom: 1px solid black
+    border-bottom: 1px solid black;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
 .subNav a {
@@ -28,18 +32,14 @@
 }
 
 .subNavLeft {
-    position: relative;
-    display: inline;
-    left: 15px;
-    top: 25%;
+    margin-right: 10px;
 }
 
+.subNavLeft,
 .subNavRight {
-    display: inline;
-    position: relative;
-    float: right;
-    right: 15px;
-    top: 25%;
+    display: flex;
+    align-items: center;
+    height: 40px;
 }
 
 .subNavBtn,
@@ -51,6 +51,15 @@
     border: none;
     border-radius: 5px;
     margin: 0 5px;
+}
+
+.subNavConfirmBtn {
+    padding: 10px;
+    background: lime;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    margin: 0 5px 0 0;
 }
 
 .subNavBtn:hover {
@@ -75,6 +84,12 @@
         padding: 5px;
         font-size: 15px;
     }
+
+    .subNavConfirmBtn {
+        padding: 5px;
+        font-size: 15px;
+        font-weight: bold;
+    }
 }
 
 @media (max-width: 600px) {
@@ -84,33 +99,13 @@
         padding: 7px;
         font-size: 11px;
         border-radius: 5px;
-        margin: 0;
+        margin: 0 3px;
     }
 
-    .subNavLeft {
-        position: relative;
-        display: inline;
-        left: 0px;
-        top: 25%;
-    }
-
-    .subNavRight {
-        right: 0px;
-        top: 25%;
-    }
-}
-
-@media (max-width: 374px) {
-
-    .subNavLeft {
-        position: relative;
-        display: block;
-        text-align: center;
-    }
-
-    .subNavRight {
-        display: block;
-        float: none;
-        text-align: center;
+    .subNavConfirmBtn {
+        padding: 7px;
+        font-size: 11px;
+        font-weight: bold;
+        margin: 0 3px 0 0;
     }
 }

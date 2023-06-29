@@ -14,7 +14,7 @@ addShift.addEventListener('click', function () {
     <ul class="row shift">
         <li class="col-lg-3 col-sm-12">
             <label for="dateRequest">Date of Shift:</label>
-            <input type="date" name="dateRequest" id="dateRequest" required>
+            <input type="date" name="dateRequest" id="dateRequest" placeholder='mm/dd/yyyy' required>
         </li>
         <li class="col-lg-3 col-sm-12">
             <label for="startTime">Shift Start Time:</label>

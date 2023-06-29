@@ -8,22 +8,23 @@
     bottom: 192px;
     width: 40%;
     left: 50%;
+    color: white;
     transform: translateX(-50%);
-    border: 2px solid black;
+    border: 2px solid white;
     padding: 50px;
-    background: rgb(170, 170, 170);
+    background: rgb(30 30 30);
 }
 
 #newShiftModal h3 {
     font-size: 40px;
     font-weight: bold;
     padding: 10px 0;
-    border-bottom: 3px solid black;
+    border-bottom: 3px solid white;
     width: 70%;
 }
 
 #shiftForm .row {
-    border-bottom: 1px solid black;
+    border-bottom: 1px solid white;
     padding: 5px;
 }
 
@@ -36,9 +37,18 @@
     padding: 5px;
 }
 
+.adminPinText {
+    -webkit-text-security: disc;
+    -moz-text-security: disc;
+}
+
 #newShiftModal label {
     width: 150px;
     font-size: 20px;
+}
+
+.modalBtns {
+    margin: 10px 0;
 }
 
 .newShiftSubmitBtn {
@@ -89,7 +99,7 @@
         font-size: 15px;
     }
 
-    .buttons {
+    .modalBtns {
         text-align: center;
     }
 }
@@ -107,7 +117,7 @@
         text-align: center;
     }
 
-    .buttons button {
+    .modalBtns button {
         width: 100%;
     }
 

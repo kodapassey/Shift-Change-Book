@@ -2,6 +2,7 @@
 
 const dateTable = document.querySelector('#date');
 const findShifts = document.querySelector('#findShifts');
+const subNavConfirmBtn = document.querySelector('#subNavConfirmBtn');
 
 function formatDateInput(dateInput) {
   const date = dateInput ? new Date(dateInput) : new Date();
@@ -11,7 +12,7 @@ function formatDateInput(dateInput) {
   return `${year}-${month}-${day}`;
 }
 
-dateTable.addEventListener('change', () => {
+subNavConfirmBtn.addEventListener('click', () => {
   const dateInput = dateTable.value;
   const formattedDate = formatDateInput(dateInput);
 
