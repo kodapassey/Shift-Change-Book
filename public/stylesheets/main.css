@@ -1,6 +1,7 @@
 body {
-    background: rgb(191, 191, 191);
+    background: #d7d7d7;
     height: 100%;
+    font-family: 'IBM Plex Sans', sans-serif;
 }
 
 .main {
@@ -15,6 +16,12 @@ body {
     text-align: center;
 }
 
+.mainButtonsWrap h1 {
+    width: 75%;
+    margin: 20px auto;
+    font-size: 35px;
+}
+
 .main3Buttons {
     background: #6d83ff;
     width: 300px;
@@ -23,11 +30,17 @@ body {
     color: white;
     font-size: 25px;
     font-weight: lighter;
+    border: none;
+    border-radius: 10px;
 }
 
 .main3Buttons:hover {
     transition: all .5s ease-out;
     background: #4460ff;
+}
+
+.allShiftsBtn {
+    display: block;
 }
 
 .noShiftsDiv {
@@ -38,12 +51,14 @@ body {
     padding: 10px 0px;
     font-style: italic;
     text-align: center;
+    font-weight: bold;
 }
 
 .ifshifth1 {
     padding: 10px 0px;
     font-style: italic;
     text-align: left;
+    font-weight: bold;
 }
 
 .h1Span {
@@ -84,11 +99,17 @@ body {
 }
 
 .noCurrentShiftsBtn {
-    width: 150px;
-    padding: 7px;
+    width: 175px;
+    padding: 10px;
     border: none;
+    font-size: 18px;
     background: green;
     color: white;
+}
+
+.noCurrentShiftsBtn:hover {
+    transition: all .5s ease-out;
+    background: rgb(0, 96, 0);
 }
 
 .noCurrentShifth2 {

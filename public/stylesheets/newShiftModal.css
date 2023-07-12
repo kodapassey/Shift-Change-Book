@@ -20,7 +20,7 @@
     font-weight: bold;
     padding: 10px 0;
     border-bottom: 3px solid white;
-    width: 70%;
+    width: 100%;
 }
 
 #shiftForm .row {
@@ -43,7 +43,7 @@
 }
 
 #newShiftModal label {
-    width: 150px;
+    width: 100%;
     font-size: 20px;
 }
 
@@ -54,7 +54,7 @@
 .newShiftSubmitBtn {
     background: green;
     color: white;
-    width: 140px;
+    width: 49%;
     padding: 10px;
     margin: 5px auto;
     border: none;
@@ -63,7 +63,7 @@
 .newShiftCancelBtn {
     background: red;
     color: white;
-    width: 140px;
+    width: 49%;
     padding: 10px;
     margin: 5px auto;
     border: none;

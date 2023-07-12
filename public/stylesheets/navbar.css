@@ -1,6 +1,6 @@
 .navbar {
     background: white !important;
-    border-bottom: 1px solid black;
+    border-bottom: 1px solid #d7d7d7;
     padding: 25px;
 }
 
@@ -18,7 +18,8 @@
 
 .subNav {
     height: 100px;
-    background: rgb(191, 191, 191);
+    background: #d7d7d7;
+    ;
     border-top: 1px solid black;
     border-bottom: 1px solid black;
 
