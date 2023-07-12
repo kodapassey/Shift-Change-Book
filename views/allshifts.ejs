@@ -1,0 +1,184 @@
+<%- include('partials/head') %>
+
+
+    <body>
+        <div class="nonModalDiv">
+
+            <%- include('partials/navbar') %>
+                <section class="main">
+
+
+                    <% if (mainShifts[0]===undefined) { %>
+                        <h1 class="noShifth1">Main Club</h1>
+                        <section class="noShiftsDiv">
+                            <h2 class="noCurrentShifth2">No current shifts for Main Club</h2>
+                        </section>
+                        <% } else { %>
+
+                            <h1 class="ifshifth1">Main Club</h1>
+                            <% for (let shift of mainShifts) { %>
+
+                                <span class="shiftDate">
+                                    <%= new Date(shift.date).toLocaleDateString("en-US", { month: "2-digit" ,
+                                        day: "2-digit" , year: "numeric" , timeZone: "UTC" }) %>
+                                </span>
+
+                                <section class="mainFormWrapper">
+                                    <form class="mainForm" action="/allshifts/<%= shift._id %>?_method=PUT"
+                                        method="POST">
+
+                                        <input type="hidden" name="_id" value="<%= shift._id %>">
+
+                                        <input class="inputVal" type="date" name="date" id="date"
+                                            value="<%= shift.date.toISOString().split('T')[0] %>" required>
+
+                                        <input class="inputVal" type="text" name="coveringShift" id="coveringShift"
+                                            placeholder="Covering Shift" value="<%= shift.coveringShift%>">
+
+                                        <div class="shiftLabelWrap">
+                                            <label for="needsCoverage">Working For:</label>
+                                            <input class="inputVal" type="text" name="needsCoverage" id="needsCoverage"
+                                                placeholder="Needing Coverage" value="<%= shift.needsCoverage%>"
+                                                required>
+                                        </div>
+
+                                        <div class="shiftLabelWrap">
+                                            <label for="startTime">Start Time:</label>
+                                            <input class="inputVal" type="time" name="startTime" id="startTime"
+                                                value="<%= shift.startTime%>" required>
+                                        </div>
+
+                                        <div class="shiftLabelWrap">
+                                            <label for="endTime">End Time:</label>
+                                            <input class="inputVal" type="time" name="endTime" id="endTime"
+                                                value="<%= shift.endTime%>" required>
+                                        </div>
+
+                                        <button class="submitBtn" type="submit">Update</button>
+                                    </form>
+
+                                    <form class="deleteForm" id="deleteForm_<%= shift._id %>"
+                                        action="/allshifts/<%= shift._id %>?_method=DELETE" method="post">
+                                        <input type="hidden" name="_id" value="<%= shift._id %>">
+                                        <button class="deleteBtn" type="submit">Delete</button>
+                                    </form>
+                                </section>
+                                <% } %>
+                                    <% } %>
+
+
+                                        <h1 class="ifshifth1">Club 2</h1>
+                                        <% for (let shift of club2Shifts) { %>
+
+                                            <span class="shiftDate">
+                                                <%= new Date(shift.date).toLocaleDateString("en-US", { month: "2-digit"
+                                                    , day: "2-digit" , year: "numeric" , timeZone: "UTC" }) %>
+                                            </span>
+
+                                            <section class="mainFormWrapper">
+                                                <form class="mainForm" action="/allshifts/<%= shift._id %>?_method=PUT"
+                                                    method="POST">
+
+                                                    <input type="hidden" name="_id" value="<%= shift._id %>">
+
+                                                    <input class="inputVal" type="date" name="date" id="date"
+                                                        value="<%= shift.date.toISOString().split('T')[0] %>" required>
+
+                                                    <input class="inputVal" type="text" name="coveringShift"
+                                                        id="coveringShift" placeholder="Covering Shift"
+                                                        value="<%= shift.coveringShift%>">
+
+                                                    <div class="shiftLabelWrap">
+                                                        <label for="needsCoverage">Working For:</label>
+                                                        <input class="inputVal" type="text" name="needsCoverage"
+                                                            id="needsCoverage" placeholder="Needing Coverage"
+                                                            value="<%= shift.needsCoverage%>" required>
+                                                    </div>
+
+                                                    <div class="shiftLabelWrap">
+                                                        <label for="startTime">Start Time:</label>
+                                                        <input class="inputVal" type="time" name="startTime"
+                                                            id="startTime" value="<%= shift.startTime%>" required>
+                                                    </div>
+
+                                                    <div class="shiftLabelWrap">
+                                                        <label for="endTime">End Time:</label>
+                                                        <input class="inputVal" type="time" name="endTime" id="endTime"
+                                                            value="<%= shift.endTime%>" required>
+                                                    </div>
+
+                                                    <button class="submitBtn" type="submit">Update</button>
+                                                </form>
+
+                                                <form class="deleteForm" id="deleteForm_<%= shift._id %>"
+                                                    action="/allshifts/<%= shift._id %>?_method=DELETE" method="post">
+                                                    <input type="hidden" name="_id" value="<%= shift._id %>">
+                                                    <button class="deleteBtn" type="submit">Delete</button>
+                                                </form>
+                                            </section>
+                                            <% } %>
+
+                                                <h1 class="ifshifth1">Eagle Point</h1>
+                                                <% for (let shift of epShifts) { %>
+
+                                                    <span class="shiftDate">
+                                                        <%= new Date(shift.date).toLocaleDateString("en-US", {
+                                                            month: "2-digit" , day: "2-digit" , year: "numeric" ,
+                                                            timeZone: "UTC" }) %>
+                                                    </span>
+
+                                                    <section class="mainFormWrapper">
+                                                        <form class="mainForm"
+                                                            action="/allshifts/<%= shift._id %>?_method=PUT"
+                                                            method="POST">
+
+                                                            <input type="hidden" name="_id" value="<%= shift._id %>">
+
+                                                            <input class="inputVal" type="date" name="date" id="date"
+                                                                value="<%= shift.date.toISOString().split('T')[0] %>"
+                                                                required>
+
+                                                            <input class="inputVal" type="text" name="coveringShift"
+                                                                id="coveringShift" placeholder="Covering Shift"
+                                                                value="<%= shift.coveringShift%>">
+
+                                                            <div class="shiftLabelWrap">
+                                                                <label for="needsCoverage">Working For:</label>
+                                                                <input class="inputVal" type="text" name="needsCoverage"
+                                                                    id="needsCoverage" placeholder="Needing Coverage"
+                                                                    value="<%= shift.needsCoverage%>" required>
+                                                            </div>
+
+                                                            <div class="shiftLabelWrap">
+                                                                <label for="startTime">Start Time:</label>
+                                                                <input class="inputVal" type="time" name="startTime"
+                                                                    id="startTime" value="<%= shift.startTime%>"
+                                                                    required>
+                                                            </div>
+
+                                                            <div class="shiftLabelWrap">
+                                                                <label for="endTime">End Time:</label>
+                                                                <input class="inputVal" type="time" name="endTime"
+                                                                    id="endTime" value="<%= shift.endTime%>" required>
+                                                            </div>
+
+                                                            <button class="submitBtn" type="submit">Update</button>
+                                                        </form>
+
+                                                        <form class="deleteForm" id="deleteForm_<%= shift._id %>"
+                                                            action="/allshifts/<%= shift._id %>?_method=DELETE"
+                                                            method="post">
+                                                            <input type="hidden" name="_id" value="<%= shift._id %>">
+                                                            <button class="deleteBtn" type="submit">Delete</button>
+                                                        </form>
+                                                    </section>
+                                                    <% } %>
+
+                </section>
+        </div>
+
+    </body>
+
+    <%- include('partials/scripts') %>
+
+        </html>

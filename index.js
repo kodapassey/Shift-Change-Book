@@ -29,6 +29,7 @@ app.use(express.json());
 app.use(methodOverride('_method'));
 
 
+
 app.get('/', (req, res) => {
     res.render('home');
 });
@@ -36,6 +37,31 @@ app.get('/', (req, res) => {
 app.get('/newChangeRequest', (req, res) => {
     res.render('newChangeRequest')
 })
+
+// routes for allshifts page
+
+app.get('/allshifts', async (req, res) => {
+    const mainShifts = await MainClubShift.find().sort({ date: 1 });
+    const club2Shifts = await Club2Shift.find().sort({ date: 1 });
+    const epShifts = await EpShift.find().sort({ date: 1 });
+    res.render('allshifts', { mainShifts, club2Shifts, epShifts });
+});
+
+app.put('/allshifts/:id', async (req, res) => {
+    const { id } = req.params;
+    const updateShiftMain = await MainClubShift.findByIdAndUpdate(id, req.body, { runValidators: true, new: true, strict: false });
+    const updateShiftClub2 = await Club2Shift.findByIdAndUpdate(id, req.body, { runValidators: true, new: true, strict: false });
+    const updateShiftEp = await EpShift.findByIdAndUpdate(id, req.body, { runValidators: true, new: true, strict: false });
+    res.redirect(`/allshifts`);
+});
+
+app.delete('/allshifts/:id', async (req, res) => {
+    const { id } = req.params;
+    const deletedShiftMain = await MainClubShift.findByIdAndDelete(id);
+    const deletedShiftClub2 = await Club2Shift.findByIdAndDelete(id);
+    const deletedShiftEp = await EpShift.findByIdAndDelete(id);
+    res.redirect(`/allshifts`);
+});
 
 // ------------------------------------------------------
 

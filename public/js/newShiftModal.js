@@ -8,7 +8,6 @@ const nonModalDiv = document.querySelector('.nonModalDiv');
 // const deleteForms = document.querySelectorAll('.deleteForm');
 
 
-
 document.addEventListener("DOMContentLoaded", function () {
     newShiftBtn.addEventListener('click', function () {
         newShiftModal.style.display = 'block';
@@ -52,17 +51,3 @@ form.addEventListener("submit", function (event) {
     form.submit();
 });
 
-
-// deleteForms.forEach(function (deleteForm) {
-//     deleteForm.addEventListener('submit', function (event) {
-//         event.preventDefault(); // prevent the default form submission behavior
-//         const promptPin = prompt('Please Enter The Admin Pin:') // prompt the user to confirm the delete action
-//         if (promptPin !== '2424' && promptPin !== '1234') {
-//             alert('Admin Pin Incorrect.')
-//             document.location.reload();
-//             return;
-//         } else {
-//             deleteForm.submit(); // submit the delete form
-//         }
-//     });
-// });
