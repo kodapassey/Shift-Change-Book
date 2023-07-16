@@ -11,7 +11,7 @@
                         <% if (shifts[0]===undefined) { %>
                             <h1 class="noShifth1">Eagle Point</h1>
                             <section class="noShiftsDiv">
-                                <h2 class="noCurrentShifth2">No current shifts for this date!</h2>
+                                <h2 class="noCurrentShifth2">No current shifts at Eaglepoint.</h2>
                                 <button class="noCurrentShiftsBtn" id="noCurrentShiftsBtn">Create New Shift</button>
                             </section>
                             <% } else { %>
@@ -73,7 +73,7 @@
 
         <div class="container">
             <section id="newShiftModal" style="display: none;">
-                <form id="shiftForm" action="/eaglepoint/:date" method="POST">
+                <form id="shiftForm" action="/eaglepoint" method="POST">
                     <h3>Create New Shift</h3>
 
                     <div class="row">

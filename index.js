@@ -66,98 +66,77 @@ app.delete('/allshifts/:id', async (req, res) => {
 // ------------------------------------------------------
 
 app.get('/main', async (req, res) => {
-    const { date } = req.params;
-    const shifts = await MainClubShift.find({ date: date });
+    const shifts = await MainClubShift.find().sort({ date: 1 });
     res.render('main', { shifts });
 });
 
-app.get('/main/:date', async (req, res) => {
-    const { date } = req.params;
-    const shifts = await MainClubShift.find({ date: date });
-    res.render('main', { shifts, date });
-})
-
-app.post('/main/:date', async (req, res) => {
+app.post('/main', async (req, res) => {
     const newShift = new MainClubShift(req.body);
     await newShift.save();
-    res.redirect(`/main/${newShift.date}`)
+    res.redirect(`/main`)
 })
 
 app.put('/main/:id', async (req, res) => {
     const { id } = req.params;
     const updatedShift = await MainClubShift.findByIdAndUpdate(id, req.body, { runValidators: true, new: true, strict: false });
-    res.redirect(`/main/${updatedShift.date}`);
+    res.redirect(`/main`);
 });
 
 app.delete('/main/:id', async (req, res) => {
     const { id } = req.params;
     const deletedShift = await MainClubShift.findByIdAndDelete(id);
-    res.redirect(`/main/${deletedShift.date}`);
+    res.redirect(`/main`);
 });
 
 // ----------------------------------------------------
 
 app.get('/club2', async (req, res) => {
-    const { date } = req.params;
-    const shifts = await Club2Shift.find({ date: date });
+    const shifts = await Club2Shift.find().sort({ date: 1 });
     res.render('club2', { shifts });
 });
 
-app.get('/club2/:date', async (req, res) => {
-    const { date } = req.params;
-    const shifts = await Club2Shift.find({ date: date });
-    res.render('club2', { shifts, date });
-})
-
-app.post('/club2/:date', async (req, res) => {
+app.post('/club2', async (req, res) => {
     const newShift = new Club2Shift(req.body);
     await newShift.save();
-    res.redirect(`/club2/${newShift.date}`)
-})
+    res.redirect(`/club2`)
+});
 
 app.put('/club2/:id', async (req, res) => {
     const { id } = req.params;
     const updatedShift = await Club2Shift.findByIdAndUpdate(id, req.body, { runValidators: true, new: true, strict: false });
-    res.redirect(`/club2/${updatedShift.date}`);
+    res.redirect(`/club2`);
 });
 
 app.delete('/club2/:id', async (req, res) => {
     const { id } = req.params;
     const deletedShift = await Club2Shift.findByIdAndDelete(id);
-    res.redirect(`/club2/${deletedShift.date}`);
+    res.redirect(`/club2`);
 });
 
 // ----------------------------------------------------
 
 
 app.get('/eaglepoint', async (req, res) => {
-    const { date } = req.params;
-    const shifts = await EpShift.find({ date: date });
+    const shifts = await EpShift.find().sort({ date: 1 });
     res.render('eaglepoint', { shifts });
 });
 
-app.get('/eaglepoint/:date', async (req, res) => {
-    const { date } = req.params;
-    const shifts = await EpShift.find({ date: date });
-    res.render('eaglepoint', { shifts, date });
-})
-
-app.post('/eaglepoint/:date', async (req, res) => {
+app.post('/eaglepoint/', async (req, res) => {
     const newShift = new EpShift(req.body);
     await newShift.save();
-    res.redirect(`/eaglepoint/${newShift.date}`)
+    res.redirect(`/eaglepoint`)
 })
 
 app.put('/eaglepoint/:id', async (req, res) => {
     const { id } = req.params;
     const updatedShift = await EpShift.findByIdAndUpdate(id, req.body, { runValidators: true, new: true, strict: false });
-    res.redirect(`/eaglepoint/${updatedShift.date}`);
+    res.redirect(`/eaglepoint`);
 });
 
 app.delete('/eaglepoint/:id', async (req, res) => {
     const { id } = req.params;
     const deletedShift = await EpShift.findByIdAndDelete(id);
-    res.redirect(`/eaglepoint/${deletedShift.date}`);
+    res.redirect(`/eaglepoint`);
 });
 
 
