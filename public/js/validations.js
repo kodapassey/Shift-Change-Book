@@ -1,15 +1,15 @@
 // below is all the validation for updating and deleting one of the shifts
 
-const mainFormWrapper = document.querySelectorAll('.mainFormWrapper');
+const deleteForm = document.querySelectorAll('.deleteForm');
 
-for (let form of mainFormWrapper) {
+for (let form of deleteForm) {
     form.addEventListener('submit', function (event) {
         event.preventDefault();
         const promptVal = prompt('Enter admin pin:');
 
         if (promptVal === null) {
             document.location.reload();
-        } else if (promptVal !== '2424' && promptVal !== '1234') {
+        } else if (promptVal !== '2323' && promptVal !== '1234' && promptVal !== '2424') {
             alert('Admin pin incorrect... Please try again');
             document.location.reload();
         } else {

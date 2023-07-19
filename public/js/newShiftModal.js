@@ -39,7 +39,7 @@ form.addEventListener("submit", function (event) {
     // Prevent the default form submission behavior
     event.preventDefault();
 
-    if (pin !== '2424' && pin !== '1234') {
+    if (pin !== '2323' && pin !== '1234' && pin !== '2424') {
         alert('Admin Pin Incorrect.');
         document.location.reload();
         return;

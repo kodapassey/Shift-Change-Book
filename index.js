@@ -3,6 +3,7 @@ const app = express();
 const path = require('path');
 const mongoose = require('mongoose');
 const methodOverride = require('method-override');
+var favicon = require('serve-favicon');
 const { check, validationResult } = require('express-validator');
 
 // test
@@ -27,6 +28,7 @@ app.use(express.urlencoded({ extended: true }))
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(methodOverride('_method'));
+app.use(favicon(path.join(__dirname, 'public', 'images', 'SAC_Logo_Navy_v2_S_Ver2.png')));
 
 
 
