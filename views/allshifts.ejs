@@ -5,6 +5,15 @@
         <div class="nonModalDiv">
 
             <%- include('partials/navbar') %>
+
+                <section class="subNav">
+                    <div class="subNavLeft">
+                        <a href="/newChangeRequest">
+                            <button class="subNavBtn changeReqBtn" id="changeReq">New Change
+                                Request</button>
+                        </a>
+                    </div>
+                </section>
                 <section class="main">
 
 
@@ -19,8 +28,8 @@
                             <% for (let shift of mainShifts) { %>
 
                                 <span class="shiftDate">
-                                    <%= new Date(shift.date).toLocaleDateString("en-US", { month: "2-digit" ,
-                                        day: "2-digit" , year: "numeric" , timeZone: "UTC" }) %>
+                                    <%= new Date(shift.date).toLocaleDateString("en-US", { weekday: "long" ,
+                                        month: "2-digit" , day: "2-digit" , year: "numeric" , timeZone: "UTC" }) %>
                                 </span>
 
                                 <section class="mainFormWrapper">

@@ -21,8 +21,8 @@
                                 <% for (let shift of shifts) { %>
 
                                     <span class="shiftDate">
-                                        <%= new Date(shift.date).toLocaleDateString("en-US", { month: "2-digit" ,
-                                            day: "2-digit" , year: "numeric" , timeZone: "UTC" }) %>
+                                        <%= new Date(shift.date).toLocaleDateString("en-US", { weekday: "long" ,
+                                            month: "2-digit" , day: "2-digit" , year: "numeric" , timeZone: "UTC" }) %>
                                     </span>
 
                                     <section class="mainFormWrapper">

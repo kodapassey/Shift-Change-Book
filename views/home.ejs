@@ -1,25 +1,37 @@
 <%- include('partials/head') %>
 
-    <body>
-        <%- include('partials/navbar') %>
-            <section class="main">
-                <div class="mainButtonsWrap">
-                    <h1>Select one of the buttons below to view shifts for individual clubs or view all shifts at once.
-                    </h1>
-                    <a id="homeLink" data-base-url="/main" href="/main"><button class="main3Buttons">Main
-                            Club</button></a>
-                    <a id="homeLink" data-base-url="/club2" href="/club2"><button class="main3Buttons">Club
-                            II</button></a>
-                    <a id="homeLink" data-base-url="/eaglepoint" href="/eaglepoint"><button class="main3Buttons">Eagle
-                            Point</button></a>
-                    <a class="allShiftsBtn" data-base-url="/allshifts" href="/allshifts"><button
-                            class="main3Buttons">View All Shifts</button></a>
-                </div>
-            </section>
-    </body>
-    <%- include('partials/scripts') %>
+        <body>
+                <%- include('partials/navbar') %>
+                        <section class="subNav">
+                                <div class="subNavLeft">
+                                        <a href="/newChangeRequest">
+                                                <button class="subNavBtn changeReqBtn" id="changeReq">New Change
+                                                        Request</button>
+                                        </a>
+                                </div>
+                        </section>
+                        <section class="main">
+                                <div class="mainButtonsWrap">
+                                        <h1>Select one of the buttons below to view shifts for individual clubs or view
+                                                all shifts at once.
+                                        </h1>
+                                        <a id="homeLink" data-base-url="/main" href="/main"><button
+                                                        class="main3Buttons">Main
+                                                        Club</button></a>
+                                        <a id="homeLink" data-base-url="/club2" href="/club2"><button
+                                                        class="main3Buttons">Club
+                                                        II</button></a>
+                                        <a id="homeLink" data-base-url="/eaglepoint" href="/eaglepoint"><button
+                                                        class="main3Buttons">Eagle
+                                                        Point</button></a>
+                                        <a class="allShiftsBtn" data-base-url="/allshifts" href="/allshifts"><button
+                                                        class="main3Buttons">View All Shifts</button></a>
+                                </div>
+                        </section>
+        </body>
+        <%- include('partials/scripts') %>
 
-        </html>
+                </html>
 
 
-        <!-- Select one of the buttons below to view shifts for individual clubs or view all shifts at once -->
+                <!-- Select one of the buttons below to view shifts for individual clubs or view all shifts at once -->
