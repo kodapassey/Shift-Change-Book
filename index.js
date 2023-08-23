@@ -25,7 +25,6 @@ app.set('views', path.join(__dirname, '/views'));
 app.set('view engine', 'ejs');
 app.use(express.static(path.join(__dirname, '/public')));
 app.use(express.urlencoded({ extended: true }))
-app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(methodOverride('_method'));
 app.use(favicon(path.join(__dirname, 'public', 'images', 'SAC_Logo_Navy_v2_S_Ver2.png')));
@@ -76,7 +75,7 @@ app.post('/main', async (req, res) => {
     const newShift = new MainClubShift(req.body);
     await newShift.save();
     res.redirect(`/main`)
-})
+});
 
 app.put('/main/:id', async (req, res) => {
     const { id } = req.params;
