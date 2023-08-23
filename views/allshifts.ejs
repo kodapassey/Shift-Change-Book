@@ -79,9 +79,9 @@
 
 
                                         <% if (club2Shifts[0]===undefined) { %>
-                                            <h1 class="noShifth1">Main Club</h1>
+                                            <h1 class="noShifth1">Club 2</h1>
                                             <section class="noShiftsDiv">
-                                                <h2 class="noCurrentShifth2">No current shifts for Main Club</h2>
+                                                <h2 class="noCurrentShifth2">No current shifts for Club 2</h2>
                                             </section>
                                             <% } else { %>
                                                 <h1 class="ifshifth1">Club 2</h1>
@@ -89,8 +89,8 @@
 
                                                     <span class="shiftDate">
                                                         <%= new Date(shift.date).toLocaleDateString("en-US", {
-                                                            month: "2-digit" , day: "2-digit" , year: "numeric" ,
-                                                            timeZone: "UTC" }) %>
+                                                            weekday: "long" , month: "2-digit" , day: "2-digit" ,
+                                                            year: "numeric" , timeZone: "UTC" }) %>
                                                     </span>
 
                                                     <section class="mainFormWrapper">
@@ -143,11 +143,11 @@
 
 
 
-                                                            <% if (club2Shifts[0]===undefined) { %>
-                                                                <h1 class="noShifth1">Main Club</h1>
+                                                            <% if (epShifts[0]===undefined) { %>
+                                                                <h1 class="noShifth1">Eagle Point</h1>
                                                                 <section class="noShiftsDiv">
                                                                     <h2 class="noCurrentShifth2">No current shifts for
-                                                                        Main Club</h2>
+                                                                        Eagle Point</h2>
                                                                 </section>
                                                                 <% } else { %>
                                                                     <h1 class="ifshifth1">Eagle Point</h1>
@@ -156,8 +156,9 @@
                                                                         <span class="shiftDate">
                                                                             <%= new
                                                                                 Date(shift.date).toLocaleDateString("en-US",
-                                                                                { month: "2-digit" , day: "2-digit" ,
-                                                                                year: "numeric" , timeZone: "UTC" }) %>
+                                                                                { weekday: "long" , month: "2-digit" ,
+                                                                                day: "2-digit" , year: "numeric" ,
+                                                                                timeZone: "UTC" }) %>
                                                                         </span>
 
                                                                         <section class="mainFormWrapper">
