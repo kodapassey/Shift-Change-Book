@@ -9,8 +9,8 @@ for (let form of deleteForm) {
 
         if (promptVal === null) {
             document.location.reload();
-        } else if (promptVal !== '2323' && promptVal !== '1234' && promptVal !== '2424') {
-            alert('Admin pin incorrect... Please try again');
+        } else if (promptVal !== '1991') {
+            alert('Pin Incorrect.');
             document.location.reload();
         } else {
             alert('Shift updated.');
