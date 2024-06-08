@@ -112,17 +112,18 @@
                     const templateParams = {
                         from_name: `${firstName} ${lastName}`,
                         message_html: `
-        Date of shift: ${newDateString} <br>
-        Shift Starting Time: ${formattedStartTime} <br>
-        Shift Ending Time: ${formattedEndTime} <br>
-        ${card} <br>
-        Notes: ${reason} <br>
+        Date of shift: ${newDateString} 
+        Shift Starting Time: ${formattedStartTime} 
+        Shift Ending Time: ${formattedEndTime} 
+        ${card} 
+        Notes: ${reason} 
     `
                     };
 
                     emailjs.send('service_yv3825g', 'template_jf8kq4j', templateParams, 'MoPf8IHwq-ssKsdDy')
                         .then(function (response) {
                             console.log('SUCCESS!', response.status, response.text);
+                            console.log("TEMPLATE PARAMS", templateParams)
                             alert('Message successfully sent!');
                             document.getElementById('shift-form').reset();
                         }, function (error) {
@@ -189,7 +190,6 @@
             </section>
     </body>
 
-    <%- include('partials/scripts') %>
 
         <script>
 
