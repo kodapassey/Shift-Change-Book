@@ -7,6 +7,150 @@
                 <h1 class="newChangeReqFormH1">New Change Request</h1>
                 <h2 class="newChangeReqFormH2">Fill out the form below to request time off</h2>
 
+                <form class="newChangeReqForm" id="shift-form" onsubmit="sendEmail(event); return false;">
+                    <ul>
+                        <li class="reqName">
+                            <input type="text" name="first" id="firstName" placeholder="First Name" required>
+                        </li>
+                        <li class="reqName">
+                            <input type="text" name="last" id="lastName" placeholder="Last Name" required>
+                        </li>
+
+                        <div class="allShifts container" id="allShifts">
+                            <ul class="row shift">
+                                <li class="reqEmail">
+                                    <input type="email" name="email" id="email" placeholder="Your Email" required>
+                                </li>
+                                <li class="col-lg-3 col-sm-12">
+                                    <label for="dateRequest">Date of Shift:</label>
+                                    <input type="date" name="dateRequest" id="dateRequest" required>
+                                </li>
+                                <li class="col-lg-3 col-sm-12">
+                                    <label for="startTime">Shift Start Time:</label>
+                                    <input type="time" name="startTime" id="startTime" required>
+                                </li>
+                                <li class="col-lg-3 col-sm-12">
+                                    <label for="endTime">Shift End Time:</label>
+                                    <input type="time" name="endTime" id="endTime" required>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="buttonDiv">
+                            <button type="button" id="addShift">Add Shift</button>
+                        </div>
+
+                        <li>
+                            <textarea name="reason" id="reason" placeholder="Notes"></textarea>
+                        </li>
+                    </ul>
+
+                    <div class="buttonDiv">
+                        <button>Submit</button>
+                    </div>
+                </form>
+            </section>
+
+            <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+            <script>
+                (function () {
+                    emailjs.init("nd5F-JQfuBSg3CQaS"); // Replace with your EmailJS user ID
+                })();
+
+                function sendEmail(event) {
+                    event.preventDefault();
+
+                    const firstName = document.querySelector('#firstName').value;
+                    const lastName = document.querySelector('#lastName').value;
+                    const date = document.querySelector('#dateRequest').value;
+                    const startTime = document.querySelector('#startTime').value;
+                    const endTime = document.querySelector('#endTime').value;
+                    const reason = document.querySelector('#reason').value;
+                    const email = document.querySelector('#email').value;
+
+                    // functions to format date
+                    let splitDate = date.split("-");
+                    let newDateString = splitDate[1] + "-" + splitDate[2] + "-" + splitDate[0];
+
+                    // function to format time inputs from military time to normal time
+                    function formatMilitaryTime(military_time) {
+                        let split_time = military_time.split(":");
+                        let hour = parseInt(split_time[0]);
+                        let minute = split_time[1];
+                        let am_pm = (hour >= 12) ? "PM" : "AM";
+                        if (hour > 12) {
+                            hour -= 12;
+                        } else if (hour === 0) {
+                            hour = 12;
+                        }
+                        return hour + ":" + minute + " " + am_pm;
+                    }
+
+                    let formattedStartTime = formatMilitaryTime(startTime);
+                    let formattedEndTime = formatMilitaryTime(endTime);
+
+                    // loops through an array of newly created shifts from the "add shift" button, and grabs these values, not the original shift that is in the form
+                    let card = '';
+                    console.log('Array length:', shiftInfoArray.length)
+                    shiftInfoArray.forEach(function (shiftInfo) {
+
+                        // functions to format date
+                        let loopSplitDate = shiftInfo.date.split("-");
+                        let loopDateString = loopSplitDate[1] + "-" + loopSplitDate[2] + "-" + loopSplitDate[0];
+
+                        // calling the function to format time and storing in a variable
+                        let loopStartTime = formatMilitaryTime(shiftInfo.startTime)
+                        let loopEndTime = formatMilitaryTime(shiftInfo.endTime)
+
+                        card += `
+                    <br>
+                    Date of shift: ${loopDateString} <br>
+                    Shift Starting Time: ${loopStartTime} <br>
+                    Shift Ending Time: ${loopEndTime} <br>
+                `;
+
+                        console.log(card)
+                    });
+
+                    // Prepare the email data
+                    const templateParams = {
+                        from_name: `${firstName} ${lastName}`,
+                        from_email: email,
+                        message_html: `
+        Date of shift: ${newDateString} <br>
+        Shift Starting Time: ${formattedStartTime} <br>
+        Shift Ending Time: ${formattedEndTime} <br>
+        ${card} <br>
+        Notes: ${reason} <br>
+    `
+                    };
+
+                    emailjs.send('service_yv3825g', 'template_jf8kq4j', templateParams)
+                        .then(function (response) {
+                            console.log('SUCCESS!', response.status, response.text);
+                            alert('Message successfully sent!');
+                            document.getElementById('shift-form').reset();
+                        }, function (error) {
+                            console.log('FAILED...', error);
+                            alert('Failed to send message, please try again');
+                        });
+                }
+            </script>
+            <%- include('partials/scripts') %>
+    </body>
+
+    </html>
+
+
+
+    <!-- 
+
+    <body>
+
+            <section class="main">
+                <h1 class="newChangeReqFormH1">New Change Request</h1>
+                <h2 class="newChangeReqFormH2">Fill out the form below to request time off</h2>
+
                 <form class="newChangeReqForm" id="shift-form" onsubmit="sendEmail(); reset(); return false;">
                     <ul>
                         <li class="reqName">
@@ -131,8 +275,8 @@
 
         </html>
 
-        <!-- password -->
-        <!-- 5199BADCA16D4664794D2F8F89244DF95BEC -->
+        <- password -->
+    <!-- 5199BADCA16D4664794D2F8F89244DF95BEC -->
 
-        <!-- encrypted key -->
-        <!--  689215a8-b4a8-42b6-b7d1-70fe437430fd -->
+    <!-- encrypted key -->
+    <!-- 689215a8-b4a8-42b6-b7d1-70fe437430fd -->
