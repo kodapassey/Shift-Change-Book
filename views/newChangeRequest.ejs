@@ -18,9 +18,6 @@
 
                         <div class="allShifts container" id="allShifts">
                             <ul class="row shift">
-                                <li class="reqEmail">
-                                    <input type="email" name="email" id="email" placeholder="Your Email" required>
-                                </li>
                                 <li class="col-lg-3 col-sm-12">
                                     <label for="dateRequest">Date of Shift:</label>
                                     <input type="date" name="dateRequest" id="dateRequest" required>
@@ -54,7 +51,7 @@
             <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
             <script>
                 (function () {
-                    emailjs.init("nd5F-JQfuBSg3CQaS"); // Replace with your EmailJS user ID
+                    emailjs.init("MoPf8IHwq-ssKsdDy"); // Replace with your EmailJS user ID
                 })();
 
                 function sendEmail(event) {
@@ -66,28 +63,27 @@
                     const startTime = document.querySelector('#startTime').value;
                     const endTime = document.querySelector('#endTime').value;
                     const reason = document.querySelector('#reason').value;
-                    const email = document.querySelector('#email').value;
 
-                    // functions to format date
-                    let splitDate = date.split("-");
-                    let newDateString = splitDate[1] + "-" + splitDate[2] + "-" + splitDate[0];
+                    // // functions to format date
+                    // let splitDate = date.split("-");
+                    // let newDateString = splitDate[1] + "-" + splitDate[2] + "-" + splitDate[0];
 
-                    // function to format time inputs from military time to normal time
-                    function formatMilitaryTime(military_time) {
-                        let split_time = military_time.split(":");
-                        let hour = parseInt(split_time[0]);
-                        let minute = split_time[1];
-                        let am_pm = (hour >= 12) ? "PM" : "AM";
-                        if (hour > 12) {
-                            hour -= 12;
-                        } else if (hour === 0) {
-                            hour = 12;
-                        }
-                        return hour + ":" + minute + " " + am_pm;
-                    }
+                    // // function to format time inputs from military time to normal time
+                    // function formatMilitaryTime(military_time) {
+                    //     let split_time = military_time.split(":");
+                    //     let hour = parseInt(split_time[0]);
+                    //     let minute = split_time[1];
+                    //     let am_pm = (hour >= 12) ? "PM" : "AM";
+                    //     if (hour > 12) {
+                    //         hour -= 12;
+                    //     } else if (hour === 0) {
+                    //         hour = 12;
+                    //     }
+                    //     return hour + ":" + minute + " " + am_pm;
+                    // }
 
-                    let formattedStartTime = formatMilitaryTime(startTime);
-                    let formattedEndTime = formatMilitaryTime(endTime);
+                    // let formattedStartTime = formatMilitaryTime(startTime);
+                    // let formattedEndTime = formatMilitaryTime(endTime);
 
                     // loops through an array of newly created shifts from the "add shift" button, and grabs these values, not the original shift that is in the form
                     let card = '';
@@ -115,7 +111,6 @@
                     // Prepare the email data
                     const templateParams = {
                         from_name: `${firstName} ${lastName}`,
-                        from_email: email,
                         message_html: `
         Date of shift: ${newDateString} <br>
         Shift Starting Time: ${formattedStartTime} <br>
@@ -125,7 +120,7 @@
     `
                     };
 
-                    emailjs.send('service_yv3825g', 'template_jf8kq4j', templateParams)
+                    emailjs.send('service_yv3825g', 'template_jf8kq4j', templateParams, 'MoPf8IHwq-ssKsdDy')
                         .then(function (response) {
                             console.log('SUCCESS!', response.status, response.text);
                             alert('Message successfully sent!');
