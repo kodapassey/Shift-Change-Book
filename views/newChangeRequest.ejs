@@ -64,26 +64,26 @@
                     const endTime = document.querySelector('#endTime').value;
                     const reason = document.querySelector('#reason').value;
 
-                    // // functions to format date
-                    // let splitDate = date.split("-");
-                    // let newDateString = splitDate[1] + "-" + splitDate[2] + "-" + splitDate[0];
+                    // functions to format date
+                    let splitDate = date.split("-");
+                    let newDateString = splitDate[1] + "-" + splitDate[2] + "-" + splitDate[0];
 
-                    // // function to format time inputs from military time to normal time
-                    // function formatMilitaryTime(military_time) {
-                    //     let split_time = military_time.split(":");
-                    //     let hour = parseInt(split_time[0]);
-                    //     let minute = split_time[1];
-                    //     let am_pm = (hour >= 12) ? "PM" : "AM";
-                    //     if (hour > 12) {
-                    //         hour -= 12;
-                    //     } else if (hour === 0) {
-                    //         hour = 12;
-                    //     }
-                    //     return hour + ":" + minute + " " + am_pm;
-                    // }
+                    // function to format time inputs from military time to normal time
+                    function formatMilitaryTime(military_time) {
+                        let split_time = military_time.split(":");
+                        let hour = parseInt(split_time[0]);
+                        let minute = split_time[1];
+                        let am_pm = (hour >= 12) ? "PM" : "AM";
+                        if (hour > 12) {
+                            hour -= 12;
+                        } else if (hour === 0) {
+                            hour = 12;
+                        }
+                        return hour + ":" + minute + " " + am_pm;
+                    }
 
-                    // let formattedStartTime = formatMilitaryTime(startTime);
-                    // let formattedEndTime = formatMilitaryTime(endTime);
+                    let formattedStartTime = formatMilitaryTime(startTime);
+                    let formattedEndTime = formatMilitaryTime(endTime);
 
                     // loops through an array of newly created shifts from the "add shift" button, and grabs these values, not the original shift that is in the form
                     let card = '';
