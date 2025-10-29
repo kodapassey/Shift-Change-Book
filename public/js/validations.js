@@ -9,7 +9,7 @@ for (let form of deleteForm) {
 
         if (promptVal === null) {
             document.location.reload();
-        } else if (promptVal !== '1991') {
+        } else if (promptVal !== '6651') {
             alert('Pin Incorrect.');
             document.location.reload();
         } else {
