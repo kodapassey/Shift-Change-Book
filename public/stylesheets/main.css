@@ -22,6 +22,23 @@ body {
     font-size: 35px;
 }
 
+.timeOffRequestPolicy {
+    text-align: center;
+}
+
+.timeOffRequestPolicy h2 {
+    padding: 65px 0 10px 0;
+    font-weight: bold;
+}
+
+.timeOffRequestPolicy ul {
+    list-style-type: none;
+}
+
+.timeOffRequestPolicy li {
+    font-size: 20px;
+}
+
 .main3Buttons {
     background: #6d83ff;
     width: 300px;

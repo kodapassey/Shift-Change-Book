@@ -9,12 +9,68 @@
                     <section class="main">
 
                         <% if (shifts[0]===undefined) { %>
+                            <div class="timeOffRequestPolicy">
+                                <h2>TIME OFF REQUEST POLICY</h2>
+                                <ul>
+                                    <li>• All Time Off Requests must be submitted at least 2
+                                        weeks in
+                                        advance.</li>
+                                    <li>• Requests are not approved until entered by the Club
+                                        Service
+                                        Manager (CSM)
+                                        on
+                                        www.superiorshiftchange.com
+                                    </li>
+                                    <li>• It is the responsibility of the CSR requesting time
+                                        off to
+                                        arrange coverage for
+                                        their regularly scheduled shift.
+                                    </li>
+                                    <li>• You may post your request on GroupMe and/or message
+                                        coworkers directly
+                                        to find coverage.
+                                    </li>
+                                    <li>• Once you sign up to cover a shift, it is your shift.
+                                        You may
+                                        not remove your
+                                        name because you changed your mind
+                                    </li>
+                                </ul>
+                            </div>
                             <h1 class="noShifth1">Eagle Point</h1>
                             <section class="noShiftsDiv">
                                 <h2 class="noCurrentShifth2">No current shifts at Eaglepoint.</h2>
                                 <button class="noCurrentShiftsBtn" id="noCurrentShiftsBtn">Create New Shift</button>
                             </section>
                             <% } else { %>
+                                <div class="timeOffRequestPolicy">
+                                    <h2>TIME OFF REQUEST POLICY</h2>
+                                    <ul>
+                                        <li>• All Time Off Requests must be submitted at least 2
+                                            weeks in
+                                            advance.</li>
+                                        <li>• Requests are not approved until entered by the Club
+                                            Service
+                                            Manager (CSM)
+                                            on
+                                            www.superiorshiftchange.com
+                                        </li>
+                                        <li>• It is the responsibility of the CSR requesting time
+                                            off to
+                                            arrange coverage for
+                                            their regularly scheduled shift.
+                                        </li>
+                                        <li>• You may post your request on GroupMe and/or message
+                                            coworkers directly
+                                            to find coverage.
+                                        </li>
+                                        <li>• Once you sign up to cover a shift, it is your shift.
+                                            You may
+                                            not remove your
+                                            name because you changed your mind
+                                        </li>
+                                    </ul>
+                                </div>
                                 <h1 class="ifshifth1">Eagle Point
 
                                 </h1>
@@ -22,7 +78,7 @@
 
                                     <span class="shiftDate">
                                         <%= new Date(shift.date).toLocaleDateString("en-US", { weekday: "long" ,
-                                        month: "2-digit" , day: "2-digit" , year: "numeric" , timeZone: "UTC" }) %>
+                                            month: "2-digit" , day: "2-digit" , year: "numeric" , timeZone: "UTC" }) %>
                                     </span>
 
 
