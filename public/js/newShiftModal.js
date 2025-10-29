@@ -39,7 +39,7 @@ form.addEventListener("submit", function (event) {
     // Prevent the default form submission behavior
     event.preventDefault();
 
-    if (pin !== '1991') {
+    if (pin !== '6651') {
         alert('Pin Incorrect.');
         document.location.reload();
         return;
